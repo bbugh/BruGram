@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
+    @hashtags = Hashtag.all
   end
 
   def new
