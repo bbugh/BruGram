@@ -1,9 +1,9 @@
 class HashtagsController < ApplicationController
   def index
-    @hashtags = Hashtag.all
+    @hashtags = Hashtag.all.order(:text)
   end
 
   def show
-    @hashtag = Hashtag.find(params[:id])
+    @hashtag = Hashtag.includes(:photos).find(params[:id])
   end
 end

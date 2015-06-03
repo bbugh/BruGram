@@ -23,15 +23,16 @@ gem "paperclip", "~> 4.2"
 
 gem 'twitter-bootstrap-rails'
 
-group :production do 
+group :production do
   gem 'pg'
-  gem 'aws-sdk'
 end
 
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  gem 'pry-rails'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

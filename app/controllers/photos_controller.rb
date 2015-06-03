@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
-    @hashtags = Hashtag.all
   end
 
   def new
@@ -9,29 +8,33 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
-    @photo.save
-    redirect_to @photo
+    @photo = Photo.new photo_params
+    if @photo.save
+      redirect_to @photo
+    else
+      render :new
+    end
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.includes(:hashtags).find params[:id]
   end
 
   def edit
-    @photo = Photo.find(params[:id])
+    @photo = Photo.find params[:id]
   end
 
   def update
-    @photo = Photo.find(params[:id])
-    @photo.update(photo_params)
-    @photo.update_hashtags
-    redirect_to @photo
+    @photo = Photo.find params[:id]
+    if @photo.update photo_params
+      redirect_to @photo
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
-    @photo.destroy
+    Photo.delete params[:id]
     redirect_to photos_path
   end
 
