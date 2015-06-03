@@ -25,6 +25,7 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     @photo.update(photo_params)
+    @photo.update_hashtags
     redirect_to @photo
   end
 

@@ -11,4 +11,8 @@
 <br>
 <br>
 
+<%= link_to 'edit', edit_photo_path(@photo) %><br>
+
+<%= link_to 'delete', photo_path, method: :delete, data: {confirm: 'Are you sure?'} %><br>
+
 <%= link_to 'back to photos', photos_path %>
