@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+photos = Photo.create([
+  { image: File.new("#{Rails.root}/app/assets/images/edu.png"), caption: "true life #ix #educational #thebest"},
+  { image: File.new("#{Rails.root}/app/assets/images/signalhill.png"), caption: "we cute #ix #signalhill #sunset" },
+  { image: File.new("#{Rails.root}/app/assets/images/fitness.png"), caption: "mylife #pizza #missyoukev"},
+  { image: File.new("#{Rails.root}/app/assets/images/surfs.png"), caption: "#tbt #legendary #ix #ta"},
+])
